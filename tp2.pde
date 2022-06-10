@@ -43,10 +43,11 @@ if (keyPressed){
   if (key== ' '){
     fill (55,183,116,200);
     rect(posx,200,100,250);
-  //  if (key == 'r'){ 
   
    }
   }
 }
+ 
+ 
  
  
