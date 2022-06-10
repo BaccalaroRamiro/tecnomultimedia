@@ -3,7 +3,6 @@
  float velx;
  float tam;
  float tamy;
-// int posx2;
  void setup(){
     size (800,600);
     posx=0;
