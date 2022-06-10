@@ -5,13 +5,15 @@
  float tamy;
  void setup(){
     size (800,600);
-    posx=0;
+    posx=400;
     velx =2;
    tam = 100;
    tamy = 50;
-  
-
  }
+   void fondorandom () {
+  background (random(255),(random (255)),(random (255)));
+  }
+  
 void draw (){
   println (posx);
   posx = posx + velx; 
@@ -26,7 +28,11 @@ void draw (){
  rect (posx,150,tam,50);
  fill (27,32,113);
  rect(posx,450,tam,50);
- 
+  if (keyPressed){
+  if (key== 'r'){
+    posx = 0;
+  }
+  }
  if (posx >= width-tam){
    velx = -2;
 }
@@ -46,12 +52,6 @@ if (keyPressed){
    }
   }
 }
-void fondorandom () {
-  background (random(255),(random (255)),(random (255)));
-  }
- 
- 
- 
  
  
  
