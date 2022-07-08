@@ -1,1 +1,0 @@
-PImage pantalla;
