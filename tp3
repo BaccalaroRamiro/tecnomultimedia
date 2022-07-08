@@ -1,1 +1,109 @@
+void setup (){
+size (600,600);
+background (30,25,103);
 
+}
+
+void draw () {
+   println ("x:");
+println (mouseX);
+println("y:");
+println (mouseY);
+
+fill (255,255);
+strokeWeight(5);
+//cuerpo
+circle (300,400,230);
+circle (290,250,180);
+circle (280,120,150);
+fill (0);
+//ojos
+circle (289,95,12);
+circle (250,100,15);
+//suelo
+strokeWeight (0);
+fill(40,147,44);
+triangle (519,502,523,471,523,504);
+triangle (526,502,530,479,530,502);
+triangle (532,501,534,466,537,503);
+triangle (192,500,196,469,198,501);
+triangle (199,500,203,468,210,500);
+triangle (207,501,211,469,219,501);
+triangle (183,505,185,480,191,503);
+
+
+rect (0,500,600,600);
+//brazos
+strokeWeight (3);
+line(375,225,430,165);
+line(430,165,480,130);
+line (467,139,473,124);
+line (467,138,484,139);
+line(200,232,116,205);
+line (116,205,75,167);
+line(86,176,90,161);
+//nariz
+fill (216,126,15);
+triangle (261,118,219,139,267,130);
+line (254,122,259,130);
+line (245,127,248,133);
+fill (70,41,6);
+circle (286,228,15);
+circle (289,274,15);
+circle (291,321,15);
+circle (289,366,15);
+//boca
+circle (274,156,3);
+circle (283,151,3);
+circle (289,145,3);
+circle(265,156,3);
+//brillo ojos
+fill(255);
+circle (253,97,7);
+circle (292,93,7);
+//sombrero
+fill (10,5,44);
+ellipse (278,53,150,50);
+rect (242,6,70,50,10);
+fill (160,21,23);
+rect (242,37,70,20);
+//nieve
+strokeWeight(0);
+fill (255);
+circle (395,21,5);
+circle (430,45,5);
+circle (385,83,5);
+circle (400,166,5);
+circle (515,86,5);
+circle (492,27,5);
+circle (530,213,5);
+circle (438,273,5);
+circle (571,267,5);
+circle (468,201,5);
+circle (570,63,4);
+circle (555,145,6);
+circle (159,22,6);
+circle (57,21,5);
+circle (20,104,5);
+circle (97,66,5);
+circle (171,152,5);
+circle (79,242,6);
+circle (28,188,5);
+circle (143,269,6);
+circle (21,318,5);
+circle (102,115,5);
+circle (179,80,5);
+
+
+
+
+
+
+
+
+
+
+
+
+  
+}
