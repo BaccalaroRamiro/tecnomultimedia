@@ -3,6 +3,7 @@ PImage hacha;
 PImage hacha2;
 PImage hacha3;
 String pantalla;
+PImage reinicio;
 PFont font;
 boolean apretar;
 int tb;
@@ -16,7 +17,8 @@ void setup () {
   hacha2 = loadImage ("hacha2.jpg");
   hacha3 = loadImage ("Tomakawk.jpg");
   pantalla = "pantallaInicial";
-  frameRate(30);
+  reinicio = loadImage ("reinicio.png");
+  
   textSize (30);
   font = loadFont("Cambria-Bold-48.vlw");
   textFont (font);
@@ -35,10 +37,10 @@ mover=frameCount;
     contador ++;
     image (hacha, 0, 0, width, height);
     textSize (28);
-    text("El hacha es una herramienta \ncon un filo metálico que está fijado de \nforma segura a un mango, generalmente \nde madera, cuya finalidad es el corte \nmediante golpes", 20, mover);
+    text("El hacha es una herramienta \ncon un filo metálico que está fijado de \nforma segura a un mango, generalmente \nde madera, cuya finalidad es el corte \nmediante golpes", 20, contador);
 
-    if (contador >=200) {
-      contador = 0;
+    if (contador >=300) {
+      contador = 10;
       pantalla = "pantallaSecundaria";
     }
   } else if (pantalla == "pantallaSecundaria") {
@@ -46,10 +48,10 @@ mover=frameCount;
     background(0);
     image (hacha2, 0, 0, width, height);
     push();
-    textSize (mover/10);
-    text ("El uso típico para las hachas \nes cortar leña y talar árboles, \npero en el pasado se usaron \ncomo armas para la caza y guerra", 0, 50);
+    textSize (contador/8);
+    text ("El uso típico para las hachas \nes cortar leña y talar árboles, \npero en el pasado se usaron \ncomo armas para la caza y guerra",20, 50);
     pop();
-    if (contador >= 200) {
+    if (contador >= 300) {
       contador = 0;
       pantalla = "tercerPantalla";
     }
@@ -59,10 +61,14 @@ mover=frameCount;
     image (hacha3, 0, 0, width, height);
     push();
     fill(0, contador);
-    text ("Antes del hacha moderna, el hacha de \nmano sin mango en la Edad de Piedra \nse usaba desde hace 1,5 millones de años. \nLas hachas con mango (aquellas con mango) \ndatan solo del 6000 a.C.", 10,200);
-    
+    text ("Antes del hacha moderna, el hacha de \nmano sin mango en la Edad de Piedra \nse usaba desde hace 1,5 millones de años. \nLas hachas con mango (aquellas con mango) \ndatan solo del 6000 a.C.", 20,200);
+     
     fill(255,0,0);
     circle (580,420,70);
+   
+    
+    imageMode(CENTER);
+    image (reinicio, posXb, posYb, 65,65);
     pop();
   }
   
@@ -95,10 +101,12 @@ void mouseClicked() {
       
       pantalla = "pantallaInicial";
       contador = 0;
-      mover=0;
+      
       
     }
   } 
 
     
   }
+
+
