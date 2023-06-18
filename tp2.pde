@@ -1,6 +1,6 @@
 PImage ilusion;
-float colorOffset = 0;
-float initialHue;
+float Brillo = 0;
+float hInicial;
 float radio;
 
 void setup() {
@@ -11,7 +11,7 @@ void setup() {
   noFill();
   strokeWeight(15);
 
-  initialHue = random(0, 360);
+  hInicial = random(0, 360);
 }
 
 void draw() {
@@ -26,7 +26,27 @@ void draw() {
     if (i == 0) {
       radio = IncrementoRadio;
     } else {
-      radio += IncrementoRadio; 
+      radio += IncrementoRadio;
     }
 
-   
+    float h = (hInicial + i * (360 / NumeroDeCirculos) + Brillo) % 360;
+    float s = map(mouseX, 0, width, 0, 100);
+    float b = map(Brillo, 0, 255, 100, 50);
+
+    stroke(h, s, b, 75);
+    ellipse(width / 2, y1, radio, radio);
+
+    for (int j = 0; j < NumeroDeCirculos; j++) {
+      stroke(h, s, b, 75); 
+      ellipse(x2, y2, radio, radio);
+    }
+  }
+}
+
+void keyPressed() {
+  Brillo += 10;
+}
+
+void mousePressed() {
+  Brillo = 0;
+}
