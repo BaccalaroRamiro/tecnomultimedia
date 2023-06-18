@@ -1,3 +1,8 @@
+//Ramiro Baccalaro
+//Comision 5
+//Legajo:91487/0
+// 
+
 PImage ilusion;
 float Brillo = 0;
 float hInicial;
@@ -39,14 +44,27 @@ void draw() {
     for (int j = 0; j < NumeroDeCirculos; j++) {
       stroke(h, s, b, 75); 
       ellipse(x2, y2, radio, radio);
+      reinicio();
     }
   }
 }
 
+
+
+
 void keyPressed() {
-  Brillo += 10;
+    Brillo = sumarValor(Brillo, 10);
+}
+ void reinicio(){
+  
+if (mousePressed){
+  Brillo = 0;
+  }
 }
 
-void mousePressed() {
-  Brillo = 0;
+float sumarValor(float valorActual, float suma) {
+  float nuevoValor = valorActual + suma;
+  return nuevoValor;
+  
 }
+ 
