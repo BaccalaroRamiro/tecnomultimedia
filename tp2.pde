@@ -26,28 +26,7 @@ void draw() {
     if (i == 0) {
       radio = IncrementoRadio;
     } else {
-      radio += IncrementoRadio; // Incrementa el radio en cada iteración del ciclo for
+      radio += IncrementoRadio; 
     }
 
-    float h = (initialHue + i * (360 / NumeroDeCirculos) + colorOffset) % 360;
-    float s = map(mouseX, 0, width, 0, 100);
-    float b = map(colorOffset, 0, 255, 100, 50);
-
-    stroke(h, s, b, 75);
-    ellipse(width / 2, y1, radio, radio);
-
-    for (int j = 0; j < NumeroDeCirculos; j++) {
-      stroke(h, s, b, 75); // Utiliza los mismos valores de h, s, y b del primer ciclo for
-      ellipse(x2, y2, radio, radio);
-      
-    }
-  }
-}
-
-void keyPressed() {
-  colorOffset += 10;
-}
-
-void mousePressed() {
-  colorOffset = 0;
-}
+   
