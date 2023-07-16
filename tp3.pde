@@ -1,8 +1,13 @@
+//Ramiro Baccalaro
+//comision 5
+//legajo: 91487/0
+// video explicativo: https://youtu.be/CIadAyP2AVQ
+// video aventura grafica parte 2 mostrando el juego : https://youtu.be/di6EYTps3OA
 int pantallaActual = 0;
 int numeroPantallas = 12;
 boolean[] botonesActivos = new boolean[numeroPantallas];
 PImage[] imagenes = new PImage[numeroPantallas];
-String[] textos = new String[numeroPantallas];
+String[] textos = new String[numeroPantallas];  
 boolean final1Alcanzado = false;
 boolean final2Alcanzado = false;
 
@@ -30,7 +35,7 @@ void setup() {
   textos[0] = "EL LOBO Y LOS SIETE CABRITILLOS \n click en siguente para comenzar";
   textos[1] = "La madre cabra sale de casa dejando a sus siete cabritos solos.\nNo le habran la puerta a nadie exclamó la madre antes de irse.";
   textos[2] = "El lobo malvado se acerca a la puerta y llama a los cabritos. \n¿Abrir la puerta?.";
-  textos[3] = "El lobo entra por la puerta y atrapa a los cabritos.";
+  textos[3] = "El lobo entra por la puerta y atrapa a los cabritos \n No debiste haber abierto la puerta.";
   textos[4] = "Los cabritos escuchan una voz ronca que dice ser su madre.";
   textos[5] = "Los cabritos saben que es el lobo quien imita su voz, su madre tiene una voz \nmucho más suave y delicada.";
   textos[6] = "El lobo se enfurece y se marcha.";
@@ -39,7 +44,6 @@ void setup() {
   textos[9] = "La madre cabra llega a tiempo a la casa y pelea contra el lobo\n salvando a sus hijos.";
   textos[10] = "Los cabritos se reencuentran con su madre y celebran\n su regreso. Están agradecidos por su valentía y prometen ser\n más cuidadosos en el futuro.";
   textos[11] = "GRACIAS POR JUGAR\n Ramiro Baccalaro Com5\n .";
-
   calcularCoordenadasBotones();
 }
 
@@ -50,7 +54,7 @@ void draw() {
   if (pantallaActual >= 0 && pantallaActual < numeroPantallas) {
     mostrarImagen();
     if ((pantallaActual == 2 || pantallaActual == 7) && !final1Alcanzado && !final2Alcanzado) {
-      mostrarBotonesOpcionales();
+      mostrarBotones2();
     } else if ((pantallaActual == 3 && final1Alcanzado) || (pantallaActual == 8 && final2Alcanzado) || pantallaActual == 11) {
       mostrarBotonReinicio();
     } else {
@@ -62,7 +66,7 @@ void draw() {
 }
 
 
-void mostrarBotonesOpcionales() {
+void mostrarBotones2() {
   fill(0, 255, 0);
   rect(boton1X, boton1Y, 100, 40);
   fill(0);
@@ -76,9 +80,8 @@ void mostrarBotonesOpcionales() {
 
 
 void mostrarBotonSiguiente() {
-  if (botonesActivos[pantallaActual]) {
-    fill(0, 255, 0);
-  }
+
+  fill(0, 255, 0);
   rect(botonSiguienteX, botonSiguienteY, 80, 40);
   fill(0);
   text("Siguiente", botonSiguienteX + 40, botonSiguienteY + 25);
@@ -99,14 +102,14 @@ void mostrarImagen() {
 
 
 void mostrarRect() {
-  fill(255); // Color blanco
+  fill(255); 
   rect(0, 0, width, 60);
 }
 
 
 void mostrarTexto(String texto) {
   fill(0);
-  textSize(20);
+  textSize(15);
   textAlign(CENTER);
   text(texto, width/2, 30);
 }
@@ -114,7 +117,7 @@ void mostrarTexto(String texto) {
 
 void mouseClicked() {
   if ((pantallaActual == 2 || pantallaActual == 7) && !final1Alcanzado && !final2Alcanzado) {
-    if (mouseX >= boton1X && mouseX <= boton1X + 100 && mouseY >= boton1Y && mouseY <= boton1Y + 40) {
+    if (mouseX >= boton1X && mouseX <= boton1X + 100 && mouseY >= boton1Y && mouseY <= boton1Y + 40) { 
       if (pantallaActual == 2) {
         pantallaActual = 3;
         final1Alcanzado = true;
@@ -144,9 +147,9 @@ void mouseClicked() {
   }
 
   if (pantallaActual >= 1 && pantallaActual <= 11) {
-    botonesActivos[pantallaActual] = true; // Siguiente
+    botonesActivos[pantallaActual] = true;
   } else if (pantallaActual == 12) {
-    botonesActivos[11] = false; // Siguiente
+    botonesActivos[11] = false;
   }
 }
 
@@ -173,3 +176,4 @@ void calcularCoordenadasBotones() {
   botonReinicioX = width - 100;
   botonReinicioY = height - 60;
 }
+
