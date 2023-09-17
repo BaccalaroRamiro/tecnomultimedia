@@ -1,126 +1,123 @@
-let canvasWidth = 600;
-let canvasHeight = 400;
-let leftPaddleX = 20;
-let leftPaddleY = canvasHeight / 2 - 40;
-let rightPaddleX = canvasWidth - 30;
-let rightPaddleY = canvasHeight / 2 - 40;
-let paddleWidth = 10;
-let paddleHeight = 80;
-let ballX = canvasWidth / 2;
-let ballY = canvasHeight / 2;
-let ballSpeedX = 5;
-let ballSpeedY = 5;
-let ballSize = 20;
+let anchoCanvas = 600;
+let altoCanvas = 400;
+let xRaquetaIzquierda = 20;
+let yRaquetaIzquierda = altoCanvas / 2 - 40;
+let xRaquetaDerecha = anchoCanvas - 30;
+let yRaquetaDerecha = altoCanvas / 2 - 40;
+let anchoRaqueta = 10;
+let altoRaqueta = 80;
+let xPelota = anchoCanvas / 2;
+let yPelota = altoCanvas / 2;
+let velocidadPelotaX = 5;
+let velocidadPelotaY = 5;
+let tamañoPelota = 20;
 
-let leftScore = 0;
-let rightScore = 0;
+let puntajeIzquierda = 0;
+let puntajeDerecha = 0;
 
-
-let gameStarted = false;
-
-let victoryMessageShown = false;
+let juegoIniciado = false;
+let mensajeVictoriaMostrado = false;
 
 function setup() {
-  createCanvas(canvasWidth, canvasHeight);
+  createCanvas(anchoCanvas, altoCanvas);
 }
 
 function draw() {
   background(0);
 
-  if (gameStarted) {
+  if (juegoIniciado) {
 
     fill(255);
-    rect(leftPaddleX, leftPaddleY, paddleWidth, paddleHeight);
-    rect(rightPaddleX, rightPaddleY, paddleWidth, paddleHeight);
-    ellipse(ballX, ballY, ballSize);
+    rect(xRaquetaIzquierda, yRaquetaIzquierda, anchoRaqueta, altoRaqueta);
+    rect(xRaquetaDerecha, yRaquetaDerecha, anchoRaqueta, altoRaqueta);
+    ellipse(xPelota, yPelota, tamañoPelota);
 
-    if (keyIsDown(87) && leftPaddleY > 0) {
-      leftPaddleY -= 5;
+    if (keyIsDown(87) && yRaquetaIzquierda > 0) {
+      yRaquetaIzquierda -= 5;
     }
-    if (keyIsDown(83) && leftPaddleY + paddleHeight < canvasHeight) {
-      leftPaddleY += 5;
+    if (keyIsDown(83) && yRaquetaIzquierda + altoRaqueta < altoCanvas) {
+      yRaquetaIzquierda += 5;
     }
-    if (keyIsDown(UP_ARROW) && rightPaddleY > 0) {
-      rightPaddleY -= 5;
+    if (keyIsDown(UP_ARROW) && yRaquetaDerecha > 0) {
+      yRaquetaDerecha -= 5;
     }
-    if (keyIsDown(DOWN_ARROW) && rightPaddleY + paddleHeight < canvasHeight) {
-      rightPaddleY += 5;
-    }
-
-    ballX += ballSpeedX;
-    ballY += ballSpeedY;
-
-
-    if (ballX < leftPaddleX + paddleWidth && ballY > leftPaddleY && ballY < leftPaddleY + paddleHeight) {
-      ballSpeedX *= -1;
-    }
-    if (ballX + ballSize > rightPaddleX && ballY > rightPaddleY && ballY < rightPaddleY + paddleHeight) {
-      ballSpeedX *= -1;
+    if (keyIsDown(DOWN_ARROW) && yRaquetaDerecha + altoRaqueta < altoCanvas) {
+      yRaquetaDerecha += 5;
     }
 
-    if (ballY < 0 || ballY > canvasHeight) {
-      ballSpeedY *= -1;
+    xPelota += velocidadPelotaX;
+    yPelota += velocidadPelotaY;
+
+    if (xPelota < xRaquetaIzquierda + anchoRaqueta && yPelota > yRaquetaIzquierda && yPelota < yRaquetaIzquierda + altoRaqueta) {
+      velocidadPelotaX *= -1;
+    }
+    if (xPelota + tamañoPelota > xRaquetaDerecha && yPelota > yRaquetaDerecha && yPelota < yRaquetaDerecha + altoRaqueta) {
+      velocidadPelotaX *= -1;
     }
 
-    if (ballX < 0) {
-      rightScore++;
-      resetBall();
+    if (yPelota < 0 || yPelota > altoCanvas) {
+      velocidadPelotaY *= -1;
     }
-    if (ballX > canvasWidth) {
-      leftScore++;
-      resetBall();
+
+    if (xPelota < 0) {
+      puntajeDerecha++;
+      reiniciarPelota();
+    }
+    if (xPelota > anchoCanvas) {
+      puntajeIzquierda++;
+      reiniciarPelota();
     }
 
     textSize(32);
     fill(255);
-    text(leftScore + " - " + rightScore, canvasWidth / 2 - 20, 30);
-    
-    if (leftScore >= 5 || rightScore >= 5) {
-      gameStarted = false;
-      victoryMessageShown = true;
-    }
-  } 
+    text(puntajeIzquierda + " - " + puntajeDerecha, anchoCanvas / 2 - 20, 30);
 
-  if (!gameStarted || victoryMessageShown) {
+    if (puntajeIzquierda >= 5 || puntajeDerecha >= 5) {
+      juegoIniciado = false;
+      mensajeVictoriaMostrado = true;
+    }
+  }
+
+  if (!juegoIniciado || mensajeVictoriaMostrado) {
     // La pantalla de inicio o el mensaje de victoria
     textSize(24);
     fill(255);
     textAlign(CENTER, CENTER);
-    
-    if (victoryMessageShown) {
+
+    if (mensajeVictoriaMostrado) {
       fill (0,255,0);
-      let winner = leftScore > rightScore ? "Jugador Izquierdo" : "Jugador Derecho";
-      text(winner + " Gana!", canvasWidth / 2, canvasHeight - 350);
+      let ganador = puntajeIzquierda > puntajeDerecha ? "Jugador Izquierdo" : "Jugador Derecho";
+      text(ganador + " Gana!", anchoCanvas / 2, altoCanvas - 350);
       fill (255,0,0);
-      text("Presiona ESPACIO para reiniciar", canvasWidth / 2, canvasHeight / 2 + 150);
+      text("Presiona ESPACIO para reiniciar", anchoCanvas / 2, altoCanvas / 2 + 150);
       textSize(40);
       fill (255);
-      text ("Gracias por jugar", canvasWidth / 2, canvasHeight / 2 -25 );
+      text ("Gracias por jugar", anchoCanvas / 2, altoCanvas / 2 -25 );
       textSize(24);
-      text ("Ramiro Baccalaro \n Comision 5 ", canvasWidth / 2, canvasHeight / 2 +50);
+      text ("Ramiro Baccalaro \n Comisión 5 ", anchoCanvas / 2, altoCanvas / 2 +50);
     } else {
       textSize(50);
-      text("PONG", canvasWidth / 2, canvasHeight / 2 - 50);
+      text("PONG", anchoCanvas / 2, altoCanvas / 2 - 50);
       textSize(24);
       
-      text("Presiona ESPACIO para jugar", canvasWidth / 2, canvasHeight / 2 + 150);
+      text("Presiona ESPACIO para jugar", anchoCanvas / 2, altoCanvas / 2 + 150);
     }
   }
 }
 
 function keyPressed() {
-  if (!gameStarted && keyCode === 32) {
-    gameStarted = true;
-    victoryMessageShown = false; 
-    leftScore = 0;
-    rightScore = 0;
-    resetBall(); 
+  if (!juegoIniciado && keyCode === 32) {
+    juegoIniciado = true;
+    mensajeVictoriaMostrado = false; 
+    puntajeIzquierda = 0;
+    puntajeDerecha = 0;
+    reiniciarPelota(); 
   }
 }
 
-function resetBall() {
-  ballX = canvasWidth / 2;
-  ballY = canvasHeight / 2;
-  ballSpeedX = 5;
-  ballSpeedY = random(-5, 5); 
+function reiniciarPelota() {
+  xPelota = anchoCanvas / 2;
+  yPelota = altoCanvas / 2;
+  velocidadPelotaX = 5;
+  velocidadPelotaY = random(-5, 5); 
 }
