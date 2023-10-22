@@ -4,9 +4,9 @@ class Juego {
   }
 
   mostrar() {
-    textSize(20);
-    fill(0);
-    text(`Vidas: ${this.vidas}`, 10, 30);
+    textSize(30);
+    fill(255,0,0);
+    text(`Vidas: ${this.vidas}`, 60, 30);
   }
 
   perderVida() {
@@ -15,9 +15,10 @@ class Juego {
 
   ganar() {
     // Ganaste el juego
-    textSize(32);
+    textAlign(CENTER);
+    textSize(70);
     fill(0, 255, 0);
-    text("¡Ganaste!", width / 2, height / 2);
+    text("¡Llegaste sano y salvo con tu madre!!", width / 2, height / 2);
     noLoop();
   }
 }
