@@ -14,7 +14,6 @@ class Juego {
   }
 
   ganar() {
-    // Ganaste el juego
     textAlign(CENTER);
     textSize(70);
     fill(0, 255, 0);
