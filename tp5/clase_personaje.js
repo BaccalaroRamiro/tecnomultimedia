@@ -2,12 +2,11 @@ class Personaje {
   constructor() {
     this.x = width / 2;
     this.y = height - 20;
-    this.tamano = 20;
+    this.tamano = 50;
   }
 
   mostrar() {
-    fill(0, 255, 0);
-    rect(this.x, this.y, this.tamano, this.tamano);
+    image(imagenPersonaje, this.x, this.y, this.tamano, this.tamano);
   }
 
   mover(dx, dy) {
