@@ -1,3 +1,7 @@
+// https://youtu.be/cQy1IAW4KYw (explicacion del codigo)
+
+// https://youtu.be/iWb_KsbsAqg (mostrando el juego)
+
 let juego;
 let personaje;
 let enemigos = [];
