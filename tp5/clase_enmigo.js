@@ -1,13 +1,13 @@
 class Enemigo {
-  constructor() {
-    this.tamano = 20;
-    this.velocidad = random(1, 5);
+  constructor(imagenEnemigo) {
+    this.tamano = 100;
+    this.velocidad = random(2, 5);
     this.reiniciar();
+    this.imagenEnemigo = imagenEnemigo;
   }
 
   mostrar() {
-    fill(255, 0, 0);
-    rect(this.x, this.y, this.tamano, this.tamano);
+    image(this.imagenEnemigo, this.x, this.y, this.tamano, this.tamano);
   }
 
   mover() {
@@ -19,6 +19,6 @@ class Enemigo {
 
   reiniciar() {
     this.x = 0;
-    this.y = random(height / 2);
+    this.y = random(height-200);
   }
 }
