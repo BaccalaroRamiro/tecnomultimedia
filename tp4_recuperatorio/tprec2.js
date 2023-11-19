@@ -43,7 +43,6 @@ function draw() {
   image(imagenRaquetaDer, xRaquetaDerecha, yRaquetaDerecha, anchoRaqueta, altoRaqueta);
   ellipse(xPelota, yPelota, tamañoPelota);
 
-// movimiento de las paletas 
     if (keyIsDown(87) && yRaquetaIzquierda > 0) {
       yRaquetaIzquierda -= 5;
     }
@@ -57,7 +56,6 @@ function draw() {
       yRaquetaDerecha += 5;
     }
 
-//colision de la pelota
 
     xPelota += velocidadPelotaX;
     yPelota += velocidadPelotaY;
@@ -72,7 +70,7 @@ function draw() {
     if (yPelota < 0 || yPelota > altoCanvas) {
       velocidadPelotaY *= -1;
     }
-// suma de puntos 
+    
     if (xPelota < 0) {
       puntajeDerecha++;
       reiniciarPelota();
