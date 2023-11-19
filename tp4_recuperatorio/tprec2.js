@@ -1,3 +1,8 @@
+//Ramiro Baccalaro 
+//comision: 5 
+//legajo 91487/0
+// https://youtu.be/DoXW99uOA2Q 
+
 let anchoCanvas = 800;
 let altoCanvas = 500;
 let xRaquetaIzquierda = 15;
