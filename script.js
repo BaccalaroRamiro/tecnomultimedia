@@ -25,7 +25,11 @@ document.querySelector('.botonproblemas').addEventListener('click', function() {
         fantasma.style.height= '0 vh';
 
     } else {
-        problemas.style.display = 'none'; 
-        fantasma.style.display = 'grid'
+        
     }
+});
+
+document.querySelector('.generar').addEventListener('click', function() {
+    document.querySelector('.portada').style.display = 'none';
+    document.querySelector('.pantalla2').style.display = 'block'; 
 });
