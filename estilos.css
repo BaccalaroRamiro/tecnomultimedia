@@ -159,6 +159,9 @@ height: auto;
     display: flex;
   }
   
+  .parrafo h3{
+    font-size: 2em;
+  }
   .generando {
     font-family: "Source Code Pro", monospace;
     font-size: 20px;
@@ -469,6 +472,7 @@ height: auto;
     font-size: 24px;
     font-weight: 700;
     margin-top: 200px;
+    width: 250px;
   }
 
     .seccion3{
@@ -810,7 +814,7 @@ height: auto;
         height: 24px;
     }
     
-     .portada, .pantalla2, .pantalla3n1,.pantalla3n2,.pantalla3n3, .pantalla4n1 {
+     .portada, .pantalla2, .pantalla3n1,.pantalla3n2,.pantalla3n3, .pantalla4n1, .pantalla5n2 {
         display: none; 
     }
      
@@ -903,3 +907,13 @@ height: auto;
     font-weight: 400;
     margin: 0;
 }
+
+.imageness2{
+    display: flex;
+    margin-left: 50px;
+    gap: 400px  ;
+    width: 500px;
+    height: 430px;
+
+}
+
