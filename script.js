@@ -33,3 +33,18 @@ document.querySelector('.generar').addEventListener('click', function() {
     document.querySelector('.portada').style.display = 'none';
     document.querySelector('.pantalla2').style.display = 'block'; 
 });
+
+document.querySelector('.resultado-volver').addEventListener('click', function() {
+    document.querySelector('.pantalla2').style.display = 'none';
+    document.querySelector('.pantalla3n1').style.display = 'block'; 
+});
+
+ document.querySelector('.resultado-container').addEventListener('click', function() {
+     document.querySelector('.pantalla3n1').style.display = 'none';
+     document.querySelector('.pantalla4n1').style.display = 'block'; 
+    });
+
+    document.querySelector('.volver').addEventListener('click', function() {
+        document.querySelector('.pantalla4n1').style.display = 'none';
+        document.querySelector('.pantalla3n2').style.display = 'block'; 
+       });
