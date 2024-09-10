@@ -48,3 +48,8 @@ document.querySelector('.resultado-volver').addEventListener('click', function()
         document.querySelector('.pantalla4n1').style.display = 'none';
         document.querySelector('.pantalla3n2').style.display = 'block'; 
        });
+
+       document.querySelector('.iluminado2').addEventListener('click', function() {
+        document.querySelector('.pantalla3n2').style.display = 'none';
+        document.querySelector('.pantalla5n2').style.display = 'block'; 
+       });
